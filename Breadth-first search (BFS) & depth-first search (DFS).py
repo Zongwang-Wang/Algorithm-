@@ -39,7 +39,7 @@ def DFS(graph):
 
 DFS(graph)
 
-# Using the recursive approach to performe the topological search in a directed acyclic graph
+# Using the recursive approach to performe the topological sort in a directed acyclic graph
 graph2 = {'s':['v','w'],
          'v':['x'],
          'w':['x'],
