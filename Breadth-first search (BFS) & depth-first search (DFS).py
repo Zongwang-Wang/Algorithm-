@@ -21,6 +21,7 @@ def BFS(graph):
 
 BFS(graph)
 
+# the basic DFS search using a stack 
 def DFS(graph):
     stack = []
     start_node = next(iter(graph))
@@ -37,3 +38,23 @@ def DFS(graph):
                     stack.append(neighbor)
 
 DFS(graph)
+
+# Using the recursive approach to performe the topological search in a directed acyclic graph
+graph2 = {'s':['v','w'],
+         'v':['x'],
+         'w':['x'],
+         'x':[],
+         }
+visited = set()
+current_label = len(graph2)-1
+def DFS(graph,start):
+    global current_label
+    for i in graph[start]:
+        if i not in visited:
+            visited.add(i)
+            DFS(graph,i)
+            print(f"Node:{i}, Current Label: {current_label}")
+            current_label -= 1
+    if current_label == 0:
+        print((f"Node:{start}, Current Label: 0"))
+DFS(graph2,'s')
