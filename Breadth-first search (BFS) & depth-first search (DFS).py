@@ -45,8 +45,9 @@ graph2 = {'s':['v','w'],
          'w':['x'],
          'x':[],
          }
-visited = set()
+visited = set() #place the global variable outside the recursive DFS function 
 current_label = len(graph2)-1
+
 def DFS(graph,start):
     global current_label
     for i in graph[start]:
@@ -55,6 +56,7 @@ def DFS(graph,start):
             DFS(graph,i)
             print(f"Node:{i}, Current Label: {current_label}")
             current_label -= 1
-    if current_label == 0:
-        print((f"Node:{start}, Current Label: 0"))
+    if current_label == 0: 
+        print((f"Node:{start}, Current Label: 0")) # Print the starting node with a current label of 0
+
 DFS(graph2,'s')
