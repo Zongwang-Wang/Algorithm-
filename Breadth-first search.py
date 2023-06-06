@@ -20,3 +20,20 @@ def BFS(graph):
                 que.append((neighbor, distance + 1))
 
 BFS(graph)
+
+def DFS(graph):
+    stack = []
+    start_node = next(iter(graph))
+    stack.append(start_node)
+    checked = set()
+
+    while stack:
+        current_node= stack.pop()
+        if current_node not in checked:
+            print(f"Node: {current_node}")
+            checked.add(current_node)
+            for neighbor in graph[current_node]:
+                if neighbor not in checked:
+                    stack.append(neighbor)
+
+DFS(graph)
